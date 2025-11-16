@@ -23,7 +23,9 @@ app.use("/", authrouter)
 app.use("/", profileRouter)
 app.use("/", requestRouter)
 app.use("/", userRouter)
-
+app.use("/",(req,res)=>{
+    return res.send("hello")
+}
 
 serverdb().then(() => {
     console.log("Conntect Sucessfully to MongoDB")
