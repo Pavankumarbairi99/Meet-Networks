@@ -1,6 +1,6 @@
 const express = require("express");
 require("./config/dataBase")
-const { serverdb } = require("./config/dataBase");
+const { serverdb } = require("./src/config/dataBase");
 const User = require("./models/user");
 const app = express();
 const cookieParser = require("cookie-parser")
