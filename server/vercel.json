@@ -1,12 +1,12 @@
 {
     "version": 2,
-    "name": "Tinder Clone",
+    "name": "MeetNetwork",
     "builds": [{
-        "src": "./app.js",
+        "src": "src/app.js",
         "use": "@vercel/node"
     }],
     "routes": [{
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "src/app.js"
     }]
 }
