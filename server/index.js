@@ -16,17 +16,15 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser())
 
-const authrouter = require("./routers/authRouter")
-const profileRouter = require("./routers/profile")
-const requestRouter = require("./routers/request")
-const userRouter = require("./routers/userRouter")
+const authrouter = require("./src/routers/authRouter")
+const profileRouter = require("./src/routers/profile")
+const requestRouter = require("./src/routers/request")
+const userRouter = require("./src/routers/userRouter")
 app.use("/", authrouter)
 app.use("/", profileRouter)
 app.use("/", requestRouter)
 app.use("/", userRouter)
-app.use("/", "hello", (req, res) => {
-    res.send("hello")
-})
+
 
 serverdb().then(() => {
     console.log("Conntect Sucessfully to MongoDB")
