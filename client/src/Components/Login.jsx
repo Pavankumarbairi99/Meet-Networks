@@ -41,12 +41,13 @@ const Login = ()=>{
   }
 
   const editeProfilePic=async()=>{
-    setuploadimageStatus(true)
+    
     const formData = new FormData();
     formData.append("image", photoUrl);
     const res = await axios.put(Base_URl + "/upload-image", formData, {
     withCredentials: true,
     });
+    setuploadimageStatus(true)
     setIsphotoSubmit(true)
     setPhotoUrl(res?.data?.data)
 
@@ -79,7 +80,7 @@ const Login = ()=>{
 };
 
     return(
-        <div className="flex justify-center my-12">
+        <div className="flex justify-center my-10 px-3">
         <div className="card bg-base-200 w-96 shadow-lg ">
           <div className="card-body ">
             <h2 className="card-title justify-center text-xl">{toggle?"Login":"SingUp"}</h2>
@@ -117,7 +118,7 @@ const Login = ()=>{
           <p className="my-2 text-center text-red-600 ">{errorMessage}</p>
             <div className="card-actions justify-end">
               <p className="my-3 cursor-pointer" onClick={()=>setToggle(!toggle)}>{toggle?"New User to SignUp ":"I already Have a Account"}</p>
-              <button className="btn btn-primary" onClick={toggle?handlingApiCall:handleSingupApi}>{toggle?"Login": "SignUp"}</button>
+              <button className=" btn border border-green-500 hover:bg-green-500 hover:text-white" onClick={toggle?handlingApiCall:handleSingupApi}>{toggle?"Login": "SignUp"}</button>
             </div>
           </div>
         </div>
