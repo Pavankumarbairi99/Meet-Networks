@@ -10,7 +10,6 @@ const userschema = new mongoose.Schema({
         maxLength: 20,
         required: true,
         trim: true
-
     },
     lastName: {
         type: String
@@ -69,7 +68,7 @@ const userschema = new mongoose.Schema({
     },
     about: {
         type: String,
-        default: "Hey I'm using the DevTinder App."
+        default: "Hey I'm using the MeetNetwork App."
     }
 }, {
     timestamps: true
