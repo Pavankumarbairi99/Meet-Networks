@@ -44,8 +44,8 @@ const Profile = ()=>{
 
     return(
         <div>
-            <div className="my-15 font-bold flex justify-center">
-                <div className="card bg-base-300 w-96 shadow-sm mx-10">
+            <div className="my-8 font-bold grid grid-cols-12 gap-8 px-5">
+                <div className=" col-span-12 md:col-span-6 card bg-base-300 shadow-sm ">
                     <div className="card-body">
                         <h2 className="card-title">Edit Profile</h2>
                                 <div className="my-1 p-2">
@@ -85,7 +85,7 @@ const Profile = ()=>{
                                     </div>
                     </div>
                 </div>
-                <div className="hidden md:block">
+                <div className="col-span-12 md:col-span-6 ">
                     
                 <EditProfilePic  />
                 
