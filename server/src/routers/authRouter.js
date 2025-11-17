@@ -4,30 +4,29 @@ const authrouter = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const multer = require("multer");
+const cookieParser = require("cookie-parser")
 const path = require("path");
 const { userAuth } = require("../Middleware/auth");
 const upload = require("../utils/multer");
 const uploadImageCloudinary = require("../utils/uploadImageCloudinary");
 
-let userSharedData = "firstName lastName age gender about skills photoUrl";
-
 
 authrouter.put("/upload-image", upload.single('image'), async(req, res) => {
-        try {
-            const file = req.file
-            const CloudinaryUrl = await uploadImageCloudinary(file)
-            return res.json({
-                message: "Upload Successfully",
-                data: CloudinaryUrl.url
-            })
+    try {
+        const file = req.file
+        const CloudinaryUrl = await uploadImageCloudinary(file)
+        return res.json({
+            message: "Upload Successfully",
+            data: CloudinaryUrl.url
+        })
 
-        } catch (err) {
-            return res.status(500).json({
-                message: err.message
-            })
-        }
-    })
-    // Signup route
+    } catch (err) {
+        return res.status(500).json({
+            message: err.message
+        })
+    }
+})
+
 authrouter.post("/signup", async(req, res) => {
     try {
         let { firstName, lastName, emailId, password, photoUrl } = req.body;
@@ -87,6 +86,7 @@ authrouter.post("/login", async(req, res) => {
         }
 
         const token = await user.getJwt();
+        console.log(token)
         res.cookie("token", token);
 
         return res.json({
