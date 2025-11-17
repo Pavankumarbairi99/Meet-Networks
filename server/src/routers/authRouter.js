@@ -86,10 +86,8 @@ authrouter.post("/login", async(req, res) => {
         }
 
         const token = await user.getJwt();
-        console.log(token)
-        res.cookie("token", token);
-
-        return res.json({
+      
+       return res.cookie("token", token).json({
             message: `${user?.firstName} Logined`,
             data: user
         });
