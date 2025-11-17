@@ -9,7 +9,7 @@ dotenv.config();
 
 app.use(cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL || "https://meet-networks-u5rc.vercel.app"
+    origin: process.env.FRONTEND_URL 
 }))
 
 app.use(express.json());
