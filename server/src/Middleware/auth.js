@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken")
 app.use(express.json());
 app.use(cookieParser())
 
-
 let userAuth = async(req, res, next) => {
     try {
         let { token } = req.cookies
