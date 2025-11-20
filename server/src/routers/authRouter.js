@@ -85,9 +85,14 @@ authrouter.post("/login", async(req, res) => {
             return res.status(404).send("Invalid Credentials");
         }
 
-        const token = await user.getJwt();
-      
-       return res.cookie("token", token).json({
+    const token = await user.getJwt();
+   return   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,          
+  sameSite: "none",     
+  path: "/",
+  maxAge: 7 * 24 * 60 * 60 * 1000,  // optional but keeps cookie alive
+}).json({
             message: `${user?.firstName} Logined`,
             data: user
         });
